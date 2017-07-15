@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 
+## Desscription
+This project helps you convert a newline seperated value to JSON array as `[{"label":"labelName"},{"value":"labelname"}]` where label Name is the value.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
