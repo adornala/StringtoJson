@@ -1,4 +1,27 @@
-md-input-container textarea {
-  width: 400px;
-  height: 400px;
+
+.data {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.data md-input-container {
+  width: 45%;
+}
+.data md-input-container textarea{
+  width: 100%;
+  height: 300px;
+}
+
+#seperators {
+  width: 90%;
+  float: left;
+}
+
+#seperators md-card-content {
+  width: 100%;
+}
+
+#buttons {
+  float: right;
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MdButtonModule } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +6,22 @@ import { MdButtonModule } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  data: any;
+
+  tooltip = 'above';
   obj: any;
   createArray: any;
   createComArray: any;
+  seperator: string;
+  custom: any;
 
-  dataIs(data) {
-    console.log(data);
-    this.obj = data.split(/\n/g);
+  dataIs(data,  sepe) {
+    console.log('sep ' + sepe);
+    if ( sepe === 'New Line' ) {
+      console.log('new Line');
+      this.obj = data.split(/\n/g);
+    } else {
+      this.obj = data.split(sepe);
+    }
 
     this.createArray = this.obj.map(element => {
       return '{ "label":"' + element + '" ,  "value":"' + element.toString().replace(/ /g, '').toLowerCase() + '"}';
@@ -28,4 +34,9 @@ export class AppComponent {
     this.createArray = '';
     this.createComArray = '';
   }
+
+  nlineChecked(checked) {
+    console.log('Checked..' + checked);
+  }
+
 }
