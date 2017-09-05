@@ -9,34 +9,60 @@ export class AppComponent {
 
   tooltip = 'above';
   obj: any;
+  dataObj: any;
+  valObj: any;
   createArray: any;
   createComArray: any;
   seperator: string;
-  custom: any;
+  notEqualWarning: boolean;
+  // custom: any;
+  // initial: any;
+  // final: any;
+  // condition: string;
+  // operation: string;
+  // result: any;
 
-  dataIs(data,  sepe) {
-    console.log('sep ' + sepe);
+  // generate() {
+  //   this.result = '{ " ' + this.condition + ' " : [ { "' + this.operation + '" : [ ' + this.initial + ' , ' + this.final + ' ] }] }';
+  // }
+
+  dataIs(data, value,  sepe) {
     if ( sepe === 'New Line' ) {
-      console.log('new Line');
-      this.obj = data.split(/\n/g);
+      this.dataObj = data.split(/\n/g);
+      this.valObj = value.split(/\n/g);
+      if ( this.valObj.length !== this.dataObj.length ) {
+        this.notEqualWarning = true;
+      } else {
+        for (let i = 0; i < this.dataObj.length; i++ ) {
+          this.obj = (i !== 0 ? this.obj : '') + ( (i === 0 ? '[' : '') + '{"label":"' + this.dataObj[i] + '","value":"'
+            + this.valObj[i] + '"}' + (i === (this.dataObj.length - 1) ? ']' : ',' ));
+        }
+      }
     } else {
-      this.obj = data.split(sepe);
+      this.dataObj = data.split(sepe);
+      this.valObj = value.split(sepe);
+      if (this.valObj.length !== this.dataObj.length) {
+        this.notEqualWarning = true;
+      } else {
+        for (let i = 0; i < this.dataObj.length; i++) {
+          this.obj = (i !== 0 ? this.obj : '') + ( (i === 0 ? '[' : '') + '{"label":"' + this.dataObj[i] + '", "value":"'
+            + this.valObj[i] + '"}' + (i === (this.dataObj.length - 1) ? ']' : ',' ));
+        }
+      }
+
+      // this.createArray = this.dataObj.map(element => {
+      //   return '{ "label":"' + element + '" ,  "value":"' + element.toString().replace(/ /g, '').toLowerCase() + '"}';
+      //   // return '{ "label":"' + element + '" ,  "value":"' + element.toString().replace(/ /g, '').toLowerCase() + '"}';
+      // });
     }
 
-    this.createArray = this.obj.map(element => {
-      return '{ "label":"' + element + '" ,  "value":"' + element.toString().replace(/ /g, '').toLowerCase() + '"}';
-    });
-    this.createComArray = '[' + this.createArray + ']';
+    this.createComArray = this.obj;
   }
 
   reset() {
     this.obj = '';
     this.createArray = '';
     this.createComArray = '';
-  }
-
-  nlineChecked(checked) {
-    console.log('Checked..' + checked);
   }
 
 }

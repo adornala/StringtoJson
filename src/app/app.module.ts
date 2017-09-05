@@ -14,22 +14,21 @@ import {
 } from '@angular/material';
 import 'hammerjs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CdkTableModule} from '@angular/cdk';
 import {HttpModule} from '@angular/http';
+import {EmojiPickerModule} from 'ng-emoji-picker';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    CdkTableModule,
     MdAutocompleteModule,
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
     MdCheckboxModule,
+    EmojiPickerModule,
     MdChipsModule,
-    MdCoreModule,
     MdDatepickerModule,
     MdDialogModule,
     MdExpansionModule,
