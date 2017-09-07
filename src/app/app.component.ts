@@ -15,6 +15,8 @@ export class AppComponent {
   createComArray: any;
   seperator: string;
   notEqualWarning: boolean;
+  data1 = '';
+  value1 = '';
   // custom: any;
   // initial: any;
   // final: any;
@@ -60,9 +62,14 @@ export class AppComponent {
   }
 
   reset() {
+    this.data1 = '';
+    this.value1 = '';
+    this.dataObj = '';
+    this.valObj = '';
     this.obj = '';
     this.createArray = '';
     this.createComArray = '';
+    this.notEqualWarning = false;
   }
 
 }

@@ -10,10 +10,10 @@
       <md-card-content>
         <h2>Data</h2>
         <md-input-container>
-          <textarea mdInput placeholder="Paste Labels Here" #data></textarea>
+          <textarea mdInput placeholder="Paste Labels Here" #data [(ngModel)] = "data1" ></textarea>
         </md-input-container>
         <md-input-container>
-          <textarea mdInput placeholder="Paste Values Here" #values></textarea>
+          <textarea mdInput placeholder="Paste Values Here" #values [(ngModel)] = "value1"></textarea>
         </md-input-container>
         <md-input-container>
           <textarea mdInput placeholder="Converted array">{{createComArray}}</textarea>
